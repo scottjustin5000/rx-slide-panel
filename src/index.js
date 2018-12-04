@@ -1,15 +1,16 @@
-# rx-slide-panel
+import React from 'react'
+import { render } from 'react-dom'
 
-drop dead simple container to allow for a slidable side bar
+import SlidePanel from './lib/slide-panel'
 
-```js
 class Example extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
       docked: true,
-      open: true
+      open: true,
+      shadow: true
     }
     this.onClick = this.onClick.bind(this)
     this.onClick2 = this.onClick2.bind(this)
@@ -46,7 +47,7 @@ class Example extends React.Component {
       sidebar: sidebar(),
       docked: this.state.docked,
       open: this.state.open,
-      applyShadow: true,
+      shadow: this.state.shadow,
       direction: 'left'
     }
 
@@ -58,5 +59,6 @@ class Example extends React.Component {
     )
   }
 }
-
-```
+const container = document.createElement('div')
+document.body.appendChild(container)
+render(<Example />, container)
